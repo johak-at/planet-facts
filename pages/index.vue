@@ -11,7 +11,7 @@ onMounted(async () => {
 
 <template>
   <v-container flex flex-col items-center gap-4 prose>
-    <NavBar :planets="planets"></NavBar>
+    <NavBar :planets="planets.planets"></NavBar>
     <MainContent></MainContent>
   </v-container>
 </template>

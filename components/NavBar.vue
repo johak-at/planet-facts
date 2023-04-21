@@ -4,7 +4,36 @@ const props = defineProps(["planets"]);
 
 <template>
   <v-container>
-    <div>NAVBAR</div>
-    <div>{{ planets }}</div>
+    <div>The Planets</div>
+    <ul>
+      <li v-for="planet in planets" :key="planet.name">
+        {{ planet.name }}
+      </li>
+    </ul>
   </v-container>
 </template>
+
+<style scoped>
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  margin-left: 10px;
+}
+
+.navbar-right {
+  margin-right: 10px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+li {
+  margin: 0 15px;
+}
+</style>
