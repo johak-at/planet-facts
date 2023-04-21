@@ -6,7 +6,8 @@ const planets = await useFetch("/data.json");
 
 <template>
   <v-container flex flex-col items-center gap-4 prose>
-    <div>{{ planets }}</div>
+    <NavBar></NavBar>
+    <MainContent></MainContent>
   </v-container>
 </template>
 
