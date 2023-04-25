@@ -34,6 +34,6 @@ ul {
 }
 
 li {
-  margin: 0 15px;
+  margin: 0 20px;
 }
 </style>
