@@ -6,7 +6,12 @@ export const useStore = defineStore(
     () => {
         const name = ref('')
         const daisyTheme = ref('dark')
-        return { name, daisyTheme }
+        const planets = ref({})
+        const loadPlanets = async () => {
+            const res = await fetch("/data.json");
+            planets.value = await res.json();
+        }
+        return { name, daisyTheme, loadPlanets }
     },
     {
         persist: true
