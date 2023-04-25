@@ -6,9 +6,13 @@ const props = defineProps(["planets"]);
   <v-container>
     <div>The Planets</div>
     <ul>
-      <li v-for="planet in planets" :key="planet.name">
+      <NuxtLink
+        v-for="planet in planets"
+        :key="planet.name"
+        :to="'/' + planet.name.toLowerCase()"
+      >
         {{ planet.name }}
-      </li>
+      </NuxtLink>
     </ul>
   </v-container>
 </template>
