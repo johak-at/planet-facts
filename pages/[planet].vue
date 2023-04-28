@@ -20,16 +20,18 @@ onMounted(async () => {
 
 <template>
   <v-container>
-
     <h1>{{ route.params.planet }}</h1>
 
     <p>{{ planet.name }}</p>
 
-
-
     <v-row>
       <v-col cols="12" md="6">
-        <v-img :src="planet.image" :alt="planet.name" width="100%"></v-img>
+        <v-img
+          v-if="planet !== 'loading'"
+          :src="planet.images.planet"
+          :alt="planet.name"
+          width="100%"
+        ></v-img>
       </v-col>
       <v-col cols="12" md="6">
         <v-card>
