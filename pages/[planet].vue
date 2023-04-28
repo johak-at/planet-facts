@@ -37,14 +37,22 @@ onMounted(async () => {
         <v-card>
           <v-card-title>
             <h2>{{ planet.name }}</h2>
-
-            
           </v-card-title>
           <v-card-text>
             <p>{{ planet.description }}</p>
             <p>{{ planet.revolution }}</p>
+            <p>{{ planet.rotation }}</p>
             <p>{{ planet.radius }}</p>
             <p>{{ planet.temperature }}</p>
+
+            <div>
+              <button type="submit">siu</button>
+            </div>
+            <div>
+              <button type="submit">
+                <router-link :to="{ name: 'index' }">Back</router-link>
+              </button>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
