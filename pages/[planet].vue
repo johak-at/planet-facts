@@ -38,15 +38,7 @@ onMounted(async () => {
           <v-card-title>
             <h2>{{ planet.name }}</h2>
 
-            <v-chip
-              v-for="moon in planet.moons"
-              :key="moon"
-              class="ma-2"
-              color="primary"
-              text-color="white"
-            >
-              {{ moon }}
-            </v-chip>
+            
           </v-card-title>
           <v-card-text>
             <p>{{ planet.description }}</p>
