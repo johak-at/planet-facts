@@ -21,10 +21,10 @@
             <div v-if="currentCard === 'overview'">
               <h3>Overview</h3>
               <p>{{ planet.description }}</p>
-              <p>Revolution: {{ planet.revolution }}</p>
-              <p>Rotation: {{ planet.rotation }}</p>
-              <p>Radius: {{ planet.radius }}</p>
-              <p>Temperature: {{ planet.temperature }}</p>
+              <p><strong>Revolution:</strong> {{ planet.revolution }}</p>
+              <p><strong>Rotation:</strong> {{ planet.rotation }}</p>
+              <p><strong>Radius:</strong> {{ planet.radius }}</p>
+              <p><strong>Temperature:</strong> {{ planet.temperature }}</p>
             </div>
             <div v-if="currentCard === 'structure'">
               <h3>Structure</h3>
@@ -34,25 +34,25 @@
               <h3>Geology</h3>
               <p>{{ planet.geology }}</p>
             </div>
-            <v-row>
-              <v-col cols="12">
-                <v-btn @click="currentCard = 'overview'" variant="outlined">Overview</v-btn>
+            <v-row class="my-4">
+              <v-col cols="4">
+                <v-btn @click="currentCard = 'overview'" :outlined="currentCard === 'overview'">Overview</v-btn>
               </v-col>
-              <v-col cols="12">
-                <v-btn @click="currentCard = 'structure'" variant="outlined">Structure</v-btn>
+              <v-col cols="4">
+                <v-btn @click="currentCard = 'structure'" :outlined="currentCard === 'structure'">Structure</v-btn>
               </v-col>
-              <v-col cols="12">
-                <v-btn @click="currentCard = 'geology'" variant="outlined">Geology</v-btn>
+              <v-col cols="4">
+                <v-btn @click="currentCard = 'geology'" :outlined="currentCard === 'geology'">Geology</v-btn>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
-                <button type="submit">siu</button>
+                <v-btn class="mr-2" type="submit">Submit</v-btn>
               </v-col>
               <v-col cols="6">
-                <button type="submit">
+                <v-btn type="submit">
                   <router-link :to="{ name: 'index' }">Back</router-link>
-                </button>
+                </v-btn>
               </v-col>
             </v-row>
           </v-card-text>
@@ -86,3 +86,9 @@ onMounted(async () => {
   planets.value = await res.json();
 });
 </script>
+
+<style scoped>
+  h1 {
+    font-size: 24px;
+    margin-bottom: 16px}
+    </style>
