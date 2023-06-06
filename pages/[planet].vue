@@ -1,6 +1,8 @@
 <template>
   <v-container fluid class="planet-detail">
-    <h1>{{ planet.name }}</h1>
+    <v-card-title>
+      <h2 class="planet-name">{{ planet.name }}</h2>
+    </v-card-title>
     <v-row class="align-center justify-space-around">
       <v-col cols="12" md="5">
         <v-img
@@ -12,9 +14,6 @@
       </v-col>
       <v-col cols="12" md="6">
         <v-card class="planet-card" v-if="planet.overview">
-          <v-card-title>
-            <h2>{{ planet.name }}</h2>
-          </v-card-title>
           <v-card-text>
             <div v-if="currentCard === 'overview'">
               <h3>Overview</h3>
@@ -58,13 +57,22 @@
       </v-col>
     </v-row>
     <v-row class="overview-row">
-      <h3>Overview</h3>
-      <p>{{ planet.description }}</p>
-      <p><strong>Revolution:</strong> {{ planet.revolution }}</p>
-      <p><strong>Rotation:</strong> {{ planet.rotation }}</p>
-      <p><strong>Radius:</strong> {{ planet.radius }}</p>
-      <p><strong>Temperature:</strong> {{ planet.temperature }}</p>
-      <p><a :href="planet.source" target="_blank">Source</a></p>
+      <v-col class="detail-container" cols="12" md="2">
+        <h3>Revolution</h3>
+        <p>{{ planet.revolution }}</p>
+      </v-col>
+      <v-col class="detail-container" cols="12" md="2">
+        <h3>Rotation</h3>
+        <p>{{ planet.rotation }}</p>
+      </v-col>
+      <v-col class="detail-container" cols="12" md="2">
+        <h3>Radius</h3>
+        <p>{{ planet.radius }}</p>
+      </v-col>
+      <v-col class="detail-container" cols="12" md="2">
+        <h3>Temperature</h3>
+        <p>{{ planet.temperature }}</p>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -98,9 +106,10 @@ onMounted(async () => {
 .planet-detail {
   padding: 100px;
   color: white;
-  background-color: #070724; /* Dunkelblau */
+  background-color: #000066; /* Dunkelblau */
   font-family: "Antonio", sans-serif;
   position: relative;
+  overflow: hidden;
 }
 
 .planet-detail::before {
@@ -112,13 +121,28 @@ onMounted(async () => {
   height: 100%;
   background-image: url("https://path-to-white-stars-image.com"); /* Ersetzen Sie "https://path-to-white-stars-image.com" durch den Pfad zum Bild mit den weißen Sternen */
   background-repeat: repeat;
+  animation: starsEffect 10s linear infinite;
   z-index: -1;
+}
+
+@keyframes starsEffect {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100px, 100px, 0);
+  }
 }
 
 .planet-image {
   max-width: 90%;
   height: auto;
   border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.planet-image:hover {
+  transform: scale(1.1);
 }
 
 .planet-card {
@@ -126,6 +150,11 @@ onMounted(async () => {
   border-radius: 10px;
   padding: 20px;
   color: white;
+  transition: box-shadow 0.3s;
+}
+
+.planet-card:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .planet-card h2,
@@ -146,6 +175,7 @@ onMounted(async () => {
   border: 1px solid white;
   margin: 5px;
   width: 100%;
+  transition: background-color 0.3s;
 }
 
 .v-btn:active {
@@ -154,5 +184,35 @@ onMounted(async () => {
 
 .overview-row {
   margin-top: 20px;
+}
+.planet-name {
+  font-size: 3em; /* Erhöht die Schriftgröße noch mehr */
+  font-family: "Antonio", sans-serif; /* Ändert die Schriftfamilie */
+  text-align: center; /* Zentriert den Text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Fügt einen Textschatten hinzu */
+  color: #c0c0c0; /* Ändert die Textfarbe */
+  text-transform: uppercase; /* Wandelt alle Buchstaben in Großbuchstaben um */
+  letter-spacing: 2px; /* Erhöht den Abstand zwischen den Buchstaben */
+  background: -webkit-linear-gradient(
+    #eee,
+    #333
+  ); /* Fügt einen Gradienteneffekt hinzu */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 20px; /* Verkleinert den oberen Rand, um die Überschrift näher an der Navigationsleiste zu positionieren */
+}
+.detail-container {
+  border: 2px solid #808080; /* Set the border color to gray */
+  border-radius: 10px; /* Increase the curve of the border corners */
+  padding: 20px; /* Increase the space between the border and the content inside */
+  margin: 10px; /* Increase the space between each detail container */
+  background-color: #1a1a1a; /* Set the background color to a darker shade of gray */
+  color: #f7b733; /* Set the text color to a contrasting color for better readability */
+  transition: all 0.3s ease; /* Add a transition effect to the border and background */
+}
+
+.detail-container:hover {
+  border-color: #f7b733; /* Change the border color to orange on hover */
+  background-color: #0d0d0d; /* Change the background color to a even darker shade of gray on hover */
 }
 </style>
