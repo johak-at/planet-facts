@@ -106,32 +106,10 @@ onMounted(async () => {
 .planet-detail {
   padding: 100px;
   color: white;
-  background-color: #000066; /* Dunkelblau */
+  background-color: #070724; /* Dunkelblau */
   font-family: "Antonio", sans-serif;
   position: relative;
   overflow: hidden;
-}
-
-.planet-detail::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://path-to-white-stars-image.com"); /* Ersetzen Sie "https://path-to-white-stars-image.com" durch den Pfad zum Bild mit den weißen Sternen */
-  background-repeat: repeat;
-  animation: starsEffect 10s linear infinite;
-  z-index: -1;
-}
-
-@keyframes starsEffect {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-100px, 100px, 0);
-  }
 }
 
 .planet-image {
@@ -207,7 +185,7 @@ onMounted(async () => {
   padding: 20px; /* Increase the space between the border and the content inside */
   margin: 10px; /* Increase the space between each detail container */
   background-color: #1a1a1a; /* Set the background color to a darker shade of gray */
-  color: #f7b733; /* Set the text color to a contrasting color for better readability */
+  color: #ffffff; /* Set the text color to a contrasting color for better readability */
   transition: all 0.3s ease; /* Add a transition effect to the border and background */
 }
 
@@ -215,4 +193,5 @@ onMounted(async () => {
   border-color: #f7b733; /* Change the border color to orange on hover */
   background-color: #0d0d0d; /* Change the background color to a even darker shade of gray on hover */
 }
+@import "./style.css";
 </style>

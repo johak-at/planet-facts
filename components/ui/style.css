@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+  color: #fff;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(stars.png) repeat, url(stars.png) repeat,
+    url(stars.png) repeat;
+  animation: animateStars1 240s linear infinite,
+    animateStars2 120s linear infinite, animateStars3 60s linear infinite;
+}
+
+@keyframes animateStars1 {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 10000px 10000px, 0 0, 0 0;
+  }
+}
+
+@keyframes animateStars2 {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 0, 5000px 5000px, 0 0;
+  }
+}
+
+@keyframes animateStars3 {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 0, 0 0, 2500px 2500px;
+  }
+}
