@@ -120,7 +120,7 @@ onMounted(async () => {
 
 <style scoped>
 .planet-detail {
-  padding: 100px;
+  padding: 50px; /* Changed from 100px */
   color: white;
   background-color: #070724; /* Dunkelblau */
   font-family: "Antonio", sans-serif;
@@ -129,7 +129,7 @@ onMounted(async () => {
 }
 
 .planet-image {
-  max-width: 90%;
+  max-width: 80%; /* Reduced from 90% */
   height: auto;
   border-radius: 50%;
   transition: transform 0.3s;
@@ -142,7 +142,7 @@ onMounted(async () => {
 .planet-card {
   background-color: #393939;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px; /* Reduced from 20px */
   color: white;
   transition: box-shadow 0.3s;
 }
@@ -180,8 +180,8 @@ onMounted(async () => {
   margin-top: 20px;
 }
 .planet-name {
-  font-size: 3em; /* Erhöht die Schriftgröße noch mehr */
-  font-family: "Antonio", sans-serif; /* Ändert die Schriftfamilie */
+  font-size: 2em; /* Reduced from 3em */
+  margin-top: 10px; /* Reduced from 20px */
   text-align: center; /* Zentriert den Text */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Fügt einen Textschatten hinzu */
   color: #c0c0c0; /* Ändert die Textfarbe */
@@ -198,8 +198,8 @@ onMounted(async () => {
 .detail-container {
   border: 2px solid #808080; /* Set the border color to gray */
   border-radius: 10px; /* Increase the curve of the border corners */
-  padding: 20px; /* Increase the space between the border and the content inside */
-  margin: 10px; /* Increase the space between each detail container */
+  padding: 10px; /* Reduced from 20px */
+  margin: 5px; /* Reduced from 10px */
   background-color: #1a1a1a; /* Set the background color to a darker shade of gray */
   color: #ffffff; /* Set the text color to a contrasting color for better readability */
   transition: all 0.3s ease; /* Add a transition effect to the border and background */
