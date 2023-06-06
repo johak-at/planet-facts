@@ -7,7 +7,7 @@
       <v-col cols="12" md="5">
         <v-img
           v-if="planet !== 'loading'"
-          :src="planet.images.planet"
+          :src="currentImage"
           :alt="planet.name"
           class="planet-image"
         ></v-img>
@@ -94,6 +94,22 @@ const planet = computed(() => {
   return planets.value.planets.filter(
     (p) => p.name.toLowerCase() === route.params.planet
   )[0];
+});
+
+const currentImage = computed(() => {
+  if (!planet.value || planet.value === "loading") {
+    return "";
+  }
+
+  switch (currentCard.value) {
+    case "overview":
+      return planet.value.images.planet;
+    case "structure":
+      return planet.value.images.internal;
+
+    case "geology":
+      return planet.value.images.geology;
+  }
 });
 
 onMounted(async () => {
